@@ -27,7 +27,6 @@ public class DaoStepDefinition implements En {
 
   @After
   public void clearExpressionCollection() {
-    System.out.println("tearDown");
     mongoTemplate.remove(new Query(), Expression.class);
   }
 
