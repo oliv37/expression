@@ -41,7 +41,7 @@ public class ExpressionRepositoryTest {
   }
 
   @Test
-  public void shouldSaveAnExpression() {
+  public void itShouldSaveAnExpression() {
     Expression expression = createExpression("Mettre la charue avant les boeufs", "", "Danton");
     Expression expressionSaved = expressionRepository.save(expression);
 
@@ -56,7 +56,7 @@ public class ExpressionRepositoryTest {
   }
 
   @Test
-  public void testPagination() {
+  public void itShouldGivePaginationInformationWhenUsingFindAll() {
     List<Expression> expressions = Arrays.asList(createExpression("exp1", ""),
         createExpression("exp2", ""), createExpression("exp3", ""), createExpression("exp4", ""),
         createExpression("exp5", ""), createExpression("exp6", ""), createExpression("exp7", ""));
@@ -73,7 +73,7 @@ public class ExpressionRepositoryTest {
   }
 
   @Test
-  public void testAudit() {
+  public void itShouldUpdateAuditFieldsWhenModifyingAnExpression() {
     Expression newExp = expressionRepository.save(createExpression("exp1", "desc1"));
 
     DateTime initCreatedAt = newExp.getCreatedAt();
@@ -94,6 +94,33 @@ public class ExpressionRepositoryTest {
     assertEquals(initCreatedAt, updatedExp.getCreatedAt());
     assertNotEquals(initLastModified, updatedExp.getLastModified());
     assertTrue(updatedExp.getLastModified().isAfter(initLastModified));
+  }
+
+  @Test
+  public void itShouldFindExpressionsByTextSearch() {
+    expressionRepository.save(createExpression("Mettre la charue", "Ceci est un test"));
+    expressionRepository.save(createExpression("Test expression", "une mobylette est partie"));
+
+    List<Expression> expressions =
+        expressionRepository.searchExpressions("charue", "abris", "bus", "mobylette");
+
+    assertEquals(2, expressions.size());
+  }
+
+  @Test
+  public void itShouldFindRandomExpressions() {
+    expressionRepository.save(createExpression("Mettre la charue", "Ceci est un test"));
+    expressionRepository.save(createExpression("Test expression", "une mobylette est partie"));
+    expressionRepository.save(createExpression("exp3", "desc7"));
+    expressionRepository.save(createExpression("exp4", "desc4"));
+    expressionRepository.save(createExpression("exp5", "desc4"));
+    expressionRepository.save(createExpression("exp6", "desc4"));
+
+    List<Expression> expressions = expressionRepository.findRandomExpressions(5);
+    assertEquals(5, expressions.size());
+
+    expressions = expressionRepository.findRandomExpressions(2);
+    assertEquals(2, expressions.size());
   }
 
 }

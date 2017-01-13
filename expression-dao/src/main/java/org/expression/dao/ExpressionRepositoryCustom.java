@@ -6,6 +6,8 @@ import org.expression.model.Expression;
 
 public interface ExpressionRepositoryCustom {
 
-  List<Expression> searchExpressions(String searchText);
+  List<Expression> searchExpressions(String... words);
+
+  List<Expression> findRandomExpressions(int size);
 
 }
