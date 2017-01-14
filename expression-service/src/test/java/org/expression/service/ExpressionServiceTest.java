@@ -34,16 +34,16 @@ public class ExpressionServiceTest {
   }
 
   @Test
-  public void itShouldReturnAnEmptyListWhenSearchingRandomlyWithZeroOrNegativeSize() {
-    assertEquals(0, expressionService.findRandomExpressions(0).size());
-    assertEquals(0, expressionService.findRandomExpressions(-1).size());
-  }
-
-  @Test
-  public void itShouldReturnTheDAOResultWhenSearchingRandomlyWithPositiveSize() {
+  public void itShouldReturnTheDAOResultWhenSearchingRandomlyWithAnySize() {
+    assertEquals(2, expressionService.findRandomExpressions(null).size());
+    assertEquals(2, expressionService.findRandomExpressions(0).size());
+    assertEquals(2, expressionService.findRandomExpressions(-1).size());
     assertEquals(2, expressionService.findRandomExpressions(1).size());
     assertEquals(2, expressionService.findRandomExpressions(10).size());
   }
+
+  // TODO : tester qu'un appel à expressionService.findRandomExpressions(0)
+  // fait bien un appel à expressionRepository.findRandomExpressions(10);
 
   @Test
   public void itShouldReturnAnEmptyListWhenSearchingExpressionWithNoTerms() {
@@ -52,7 +52,7 @@ public class ExpressionServiceTest {
   }
 
   @Test
-  public void itShouldReturnTheDAOResultWhenSearchingExpressionsWithTermsInArgument() {
+  public void itShouldReturnTheDAOResultWhenSearchingExpressionsWithAnyTermsInArgument() {
     assertEquals(2, expressionService.searchExpressions("test").size());
     assertEquals(2, expressionService.searchExpressions("test dao").size());
   }

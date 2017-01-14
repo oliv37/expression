@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.expression.dao.ExpressionRepository;
 import org.expression.model.Expression;
+import org.expression.service.constant.ServiceConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -28,9 +29,9 @@ public class ExpressionService {
     return expressionRepository.searchExpressions(searchText.split(" "));
   }
 
-  public List<Expression> findRandomExpressions(int size) {
-    if (size <= 0) {
-      return Lists.newArrayList();
+  public List<Expression> findRandomExpressions(Integer size) {
+    if (size == null || size <= 0) {
+      size = ServiceConstant.DEFAULT_RANDOM_SEARCH_SIZE;
     }
 
     return expressionRepository.findRandomExpressions(size);
