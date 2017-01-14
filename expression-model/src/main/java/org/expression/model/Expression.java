@@ -1,6 +1,6 @@
 package org.expression.model;
 
-import org.expression.model.util.CollectionNames;
+import org.expression.model.constant.CollectionNames;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

@@ -1,4 +1,4 @@
-package org.expression.model.util;
+package org.expression.model.constant;
 
 public class CollectionNames {
 

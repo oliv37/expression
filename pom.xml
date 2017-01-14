@@ -15,6 +15,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <embed.mongo.version>1.50.5</embed.mongo.version>
     <cucumber.version>1.2.5</cucumber.version>
+    <guava.version>21.0</guava.version>
   </properties>
 
   <parent>
@@ -26,7 +27,11 @@
   <modules>
     <module>expression-model</module>
     <module>expression-dao</module>
+    <module>expression-service</module>
   </modules>
+
+  <!-- <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId> 
+    <artifactId>spring-boot-maven-plugin</artifactId> </plugin> </plugins> </build> -->
 
   <profiles>
     <profile>
@@ -59,6 +64,11 @@
         <version>${project.version}</version>
       </dependency>
       <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>expression-dao</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
         <groupId>cz.jirutka.spring</groupId>
         <artifactId>embedmongo-spring</artifactId>
         <version>${embedmongo.spring.version}</version>
@@ -68,6 +78,11 @@
         <groupId>de.flapdoodle.embed</groupId>
         <artifactId>de.flapdoodle.embed.mongo</artifactId>
         <version>${embed.mongo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

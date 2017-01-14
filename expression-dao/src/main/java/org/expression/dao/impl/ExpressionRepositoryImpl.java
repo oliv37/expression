@@ -7,7 +7,7 @@ import java.util.List;
 import org.expression.dao.ExpressionRepositoryCustom;
 import org.expression.dao.operation.CustomAggregationOperation;
 import org.expression.model.Expression;
-import org.expression.model.util.CollectionNames;
+import org.expression.model.constant.CollectionNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.mongodb.core.MongoTemplate;
