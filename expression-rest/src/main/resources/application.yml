@@ -10,3 +10,10 @@ spring:
          host: localhost
          port: 27017
          database: DB_EXP_TEST
+         
+info.app:
+   encoding: @project.build.sourceEncoding@
+   project.name: @project.name@
+   project.version: @project.version@
+   java.source: @java.version@
+   java.target: @java.version@
