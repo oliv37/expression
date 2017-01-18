@@ -10,6 +10,10 @@ spring:
          host: localhost
          port: 27017
          database: DB_EXP_TEST
+   mvc:
+      throw-exception-if-no-handler-found: true
+   resources:
+      add-mappings: false
          
 info.app:
    encoding: @project.build.sourceEncoding@
