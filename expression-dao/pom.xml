@@ -17,10 +17,5 @@
       <groupId>org.expression</groupId>
       <artifactId>expression-model</artifactId>
     </dependency>
-    <dependency>
-      <groupId>de.flapdoodle.embed</groupId>
-      <artifactId>de.flapdoodle.embed.mongo</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 </project>

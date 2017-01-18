@@ -14,7 +14,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <embed.mongo.version>1.50.5</embed.mongo.version>
     <cucumber.version>1.2.5</cucumber.version>
     <guava.version>21.0</guava.version>
   </properties>
@@ -71,17 +70,6 @@
         <groupId>${project.groupId}</groupId>
         <artifactId>expression-service</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>cz.jirutka.spring</groupId>
-        <artifactId>embedmongo-spring</artifactId>
-        <version>${embedmongo.spring.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>de.flapdoodle.embed</groupId>
-        <artifactId>de.flapdoodle.embed.mongo</artifactId>
-        <version>${embed.mongo.version}</version>
       </dependency>
       <dependency>
         <groupId>com.google.guava</groupId>
