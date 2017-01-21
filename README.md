@@ -10,7 +10,7 @@ mvn clean install -P full
 
 ### Launch Project (Development phase)
 
-mvn spring-boot:run -Drun.profiles=dev -Dlogging.file=<path_file>
+mvn spring-boot:run -Drun.profiles=dev -Dlogging.file=`path_file`
 
 ### Frameworks
 * Spring Boot 1.4.3.RELEASE
