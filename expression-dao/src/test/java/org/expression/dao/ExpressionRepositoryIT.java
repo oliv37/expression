@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.expression.model.Expression;
-import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -76,8 +76,8 @@ public class ExpressionRepositoryIT {
   public void itShouldUpdateAuditFieldsWhenModifyingAnExpression() {
     Expression newExp = expressionRepository.save(createExpression("exp1", "desc1"));
 
-    DateTime initCreatedAt = newExp.getCreatedAt();
-    DateTime initLastModified = newExp.getLastModified();
+    LocalDateTime initCreatedAt = newExp.getCreatedAt();
+    LocalDateTime initLastModified = newExp.getLastModified();
 
     assertNotNull(newExp.getId());
     assertEquals(newExp.getExpression(), "exp1");
