@@ -30,7 +30,7 @@ public class ExpressionService {
   }
 
   public List<Expression> findRandomExpressions(Integer size) {
-    if (size == null || size <= 0) {
+    if (size == null || size <= 0 || size > ServiceConstant.MAX_RANDOM_SEARCH_SIZE) {
       size = ServiceConstant.DEFAULT_RANDOM_SEARCH_SIZE;
     }
 
