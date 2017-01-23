@@ -2,6 +2,10 @@ package org.expression.batch.job;
 
 import static org.junit.Assert.assertEquals;
 
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.expression.model.Expression;
 import org.junit.After;
 import org.junit.Test;
@@ -29,8 +33,11 @@ public class ImportCSVBatchIT {
   @Test
   public void testDefaultSettings() throws Exception {
     long totalNbOfExpressions = mongoTemplate.count(new Query(), Expression.class);
-    // TODO : récupérer le nombre de ligne - 1 dans le fichier CSV
-    assertEquals(4, totalNbOfExpressions);
+
+    URL url = this.getClass().getClassLoader().getResource("expression-data-test.csv");
+    long nbFileLines = Files.lines(Paths.get(url.toURI())).skip(1).count();
+
+    assertEquals(nbFileLines, totalNbOfExpressions);
   }
 
 }
